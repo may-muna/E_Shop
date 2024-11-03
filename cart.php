@@ -137,7 +137,7 @@ include('functions/common_function.php');
                           <input type='submit' value='Continue Shopping' class='text-light bg-secondary px-3 py-2 border-0 mx-3' name='Continue_Shopping'>
                           <button class='text-bright bg-secondary px-3 py-2 border-0'><a href='checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
                 } else {
-                    echo "<input type='submit' value='Continue Shopping' class=' bg-secondary px-3 py-2 border-0 mx-3' name='Continue_Shopping'>";
+                    echo "<input type='submit' value='Continue Shopping' class='text-light bg-secondary px-3 py-2 border-0 mx-3' name='Continue_Shopping'>";
                 }
 
                 if (isset($_POST['Continue_Shopping'])) {
