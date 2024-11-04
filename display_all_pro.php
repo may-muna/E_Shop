@@ -1,6 +1,7 @@
 <?php 
 include('include/db.php');
 include('functions/common_function.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +58,25 @@ include('functions/common_function.php');
 </div>
 </nav>
 
-
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <ul class="navbar-nav me-auto">
+  <li class="nav-item ms-3">
+          <a class="nav-link text-light fs-4" href="#">Welcome Guest</a>
+        </li>
+        
+        <?php 
+        if(!isset($_SESSION['username'])){
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='./user_area/logout.php'>Logout</a>
+        </li>";
+        }else{
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='./user_area/login.php'>Login</a>
+        </li>";
+        }
+        ?>
+  </ul>
+</nav>
 
 <div class="bg-light py-3">
   <h3 class="text-center">Welcome to E-Shop</h3>

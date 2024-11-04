@@ -1,6 +1,8 @@
 <?php 
 include('include/db.php');
 include('functions/common_function.php');
+session_start();
+
 ?>
 
 
@@ -17,7 +19,11 @@ include('functions/common_function.php');
     <!----font awesome---->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-
+    <style>
+   body{
+    overflow-x:hidden ;
+   } 
+</style>
   </head>
 <body>
 <!--navbar-->
@@ -65,18 +71,34 @@ cart();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
   <ul class="navbar-nav me-auto">
-  <li class="nav-item ms-3">
-          <a class="nav-link text-light fs-4" href="#">Welcome Guest</a>
-        </li>
-        <li class="nav-item ms-3">
-          <a class="nav-link text-light fs-4" href="./user_area/login.php">Login</a>
-        </li>
+        
+        
+        <?php 
+        if(isset($_SESSION['username'])){
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='#'>Welcome Guest</a>
+        </li>";
+        }else{
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='#'>Welcome ".$_SESSION['name']."</a>
+        </li>";
+        }
+
+        if(!isset($_SESSION['username'])){
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='./user_area/logout.php'>Logout</a>
+        </li>";
+        }else{
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='./user_area/login.php'>Login</a>
+        </li>";
+        }
+        ?>
   </ul>
 </nav>
 
 <div class="bg-light py-3">
   <h3 class="text-center">Welcome to E-Shop </h3>
- 
 </div>
 <div class="row px-1">
   <div class="col-md-10">

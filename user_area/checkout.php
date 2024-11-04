@@ -1,10 +1,8 @@
 <?php 
-include('include/db.php');
+include('../include/db.php');
+session_start();
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,20 +31,20 @@ include('include/db.php');
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-6 mb-lg-2 ms-3">
       <li class="nav-item mx-3">
-        <a class="nav-link active fs-4" aria-current="page" href="index.php">Home</a> 
+        <a class="nav-link active fs-4" aria-current="page" href="../index.php">Home</a> 
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link fs-4" href="display_all_pro.php">Products</a> 
+        <a class="nav-link fs-4" href="../display_all_pro.php">Products</a> 
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link fs-4" href="user_area/reg.php">Register</a> 
+        <a class="nav-link fs-4" href="reg.php">Register</a> 
       </li>
       <li class="nav-item mx-3">
         <a class="nav-link fs-4" href="#">Contact</a>
       </li>
     </ul>
 
-    <form class="d-flex ms-3" action="search_pro.php" method="get">
+    <form class="d-flex ms-3" action="../search_pro.php" method="get">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
       <input type="submit" value="Search" class="btn btn-secondary" name="search_data_pro">
     </form>
@@ -59,9 +57,18 @@ include('include/db.php');
   <li class="nav-item ms-3">
           <a class="nav-link text-light fs-4" href="#">Welcome Guest</a>
         </li>
-        <li class="nav-item ms-3">
-          <a class="nav-link text-light fs-4" href="user_area/login.php">Login</a>
-        </li>
+        <?php 
+        if(!isset($_SESSION['username'])){
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='logout.php'>Logout</a>
+        </li>";
+        }else{
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='login.php'>Login</a>
+        </li>";
+        }
+        ?>
+
   </ul>
 </nav>
 
@@ -74,9 +81,9 @@ include('include/db.php');
       <div class="row">
         <?php
         if(!isset($_SESSION['name'])){
-            include('user_area/login.php');
+            include('login.php');
         }else{
-            include('../payment.php');
+            include('payment.php');
         }
             
             ?>

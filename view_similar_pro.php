@@ -24,12 +24,13 @@ include('functions/common_function.php');
 <div class="container-fluid p=0">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
 
-  <div class="container-fluid">
+<div class="container-fluid">
   <img src="./images/logo.jpeg" alt="" class="logo">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-6 mb-lg-2 ms-3">
       <li class="nav-item mx-3">
         <a class="nav-link active fs-4" aria-current="page" href="index.php">Home</a> 
@@ -56,9 +57,8 @@ include('functions/common_function.php');
       <input type="submit" value="Search" class="btn btn-secondary" name="search_data_pro">
     </form>
   </div>
-  </div>
+</div>
 </nav>
-
 <?php
 cart();
 ?>

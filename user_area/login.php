@@ -1,6 +1,7 @@
 <?php
 include('../include/db.php');
 include('../functions/common_function.php');
+@session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,31 +66,14 @@ if(isset($_POST['login'])){
     $select_cart=mysqli_query($con,$select_que);
     $c=mysqli_num_rows($select_cart);
     if($rows_count>0){
+        $_SESSION['name']=$user;
         if($rows_count==1 and $c==0){
-            echo "<script>
-            swal({
-            title: 'Success',
-            text: 'Login successfully!',
-            icon: 'success',
-            button: 'OK',
-            });
-            </script>";
-            echo "<script>window.open('user_area/profile.php','_self')</script>";
+            $_SESSION['name']=$user;
+            echo "<script>window.open('profile.php','_self')</script>";
             }else{
-                echo "<script>
-                swal({
-                title: 'Success',
-                text: 'Login successfully!',
-                icon: 'success',
-                button: 'OK',
-            });
-            </script>";
-            echo "<script>window.open('user_area/payment.php','_self')</script>";
-
+                $_SESSION['name']=$user;
+            echo "<script>window.open('payment.php','_self')</script>";
             }
-        
-         
-            
     }else{
         echo "<script>
         swal({

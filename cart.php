@@ -1,7 +1,8 @@
 <?php 
 include('include/db.php');
-include('functions/common_function.php');
-?>
+ include('functions/common_function.php');
+ session_start();
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,9 +58,17 @@ include('functions/common_function.php');
         <li class="nav-item ms-3">
             <a class="nav-link text-light fs-4" href="#">Welcome Guest</a>
         </li>
-        <li class="nav-item ms-3">
-            <a class="nav-link text-light fs-4" href="user_area/login.php">Login</a>
-        </li>
+        <?php 
+        if(!isset($_SESSION['username'])){
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='logout.php'>Logout</a>
+        </li>";
+        }else{
+          echo " <li class='nav-item ms-3'>
+          <a class='nav-link text-light fs-4' href='login.php'>Login</a>
+        </li>";
+        }
+        ?>
     </ul>
 </nav>
 
@@ -135,7 +144,7 @@ include('functions/common_function.php');
                 if ($r_count > 0) {
                     echo "<h4 class='px-3'>Subtotal: <strong>$total/-</strong></h4>
                           <input type='submit' value='Continue Shopping' class='text-light bg-secondary px-3 py-2 border-0 mx-3' name='Continue_Shopping'>
-                          <button class='text-bright bg-secondary px-3 py-2 border-0'><a href='checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
+                          <button class='text-bright bg-secondary px-3 py-2 border-0'><a href='./user_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
                 } else {
                     echo "<input type='submit' value='Continue Shopping' class='text-light bg-secondary px-3 py-2 border-0 mx-3' name='Continue_Shopping'>";
                 }
