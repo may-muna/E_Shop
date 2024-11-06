@@ -57,7 +57,7 @@ if(isset($_POST['login'])){
     $userpass=$_POST['password'];
     $user_ip=getIPAddress();
 
-    $select_query="select * from user where name= '$username' and password ='$userpass'  ";
+    $select_query="select * from user where name= '$username' AND password ='$userpass'  ";
     $r=mysqli_query($con,$select_query);
     $rows_count=mysqli_num_rows($r);
     
@@ -66,12 +66,10 @@ if(isset($_POST['login'])){
     $select_cart=mysqli_query($con,$select_que);
     $c=mysqli_num_rows($select_cart);
     if($rows_count>0){
-        $_SESSION['name']=$user;
+        $_SESSION['username']=$username;
         if($rows_count==1 and $c==0){
-            $_SESSION['name']=$user;
             echo "<script>window.open('profile.php','_self')</script>";
             }else{
-                $_SESSION['name']=$user;
             echo "<script>window.open('payment.php','_self')</script>";
             }
     }else{
