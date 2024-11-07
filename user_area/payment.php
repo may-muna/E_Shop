@@ -1,11 +1,27 @@
+<?php
+include('../include/db.php');
+include('../functions/common_function.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!----bootstrap--->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>pay</h1>
+   <div class="container  bg-secondary my-3 ">
+        <h2 class="text-center  text-light fs-0">Payment Options</h2>
+        <div class="row">
+            <a href="https://www." class="href"></a>
+        </div>
+
+    </div>
 </body>
 </html>
