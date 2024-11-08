@@ -65,10 +65,12 @@ session_start();
   </div>
 </div>
 </nav>
+<!---nav end-->
 
 <?php
 cart();
 ?>
+<!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
   <ul class="navbar-nav me-auto">
         
@@ -89,12 +91,13 @@ if (isset($_SESSION['username'])) {
 
   </ul>
 </nav>
+<!---nav end-->
 
-<div class="bg-light py-3">
-  <h3 class="text-center">Welcome to E-Shop </h3>
-</div>
-<div class="row px-1">
-  <div class="col-md-10">
+  <div class="bg-light py-3">
+    <h3 class="text-center">Welcome to E-Shop </h3>
+  </div>
+  <div class="row px-1">
+    <div class="col-md-10">
       <div class="row">
 
       <?php 
@@ -103,25 +106,25 @@ if (isset($_SESSION['username'])) {
         getIPAddress();
       ?>
         <!--row end-->      
-    </div> 
+      </div> 
     <!--col end-->       
-  </div>
-  <div class="col-md-2 p-0" style="background-color:rgb(250, 236, 239);">
-    <ul class="navbar-nav me auto text-center">
-      <li class="nav-item bg-secondary" >
-        <a href="#" class="nav-link text-light"><h4>Categories</h4></a>
-      </li>
-      <?php 
-      getcategory();
-      ?>    
-    </ul>
-  </div>
-</div>
-
-
-<div class="bg-secondary p-3 text-center navbar-light text-light footer">
-        <p>All rights reserved & Designed by <b>MAYMUNA MARJAN</b></p>
     </div>
+    <div class="col-md-2 p-0" style="background-color:rgb(250, 236, 239);">
+      <ul class="navbar-nav me auto text-center">
+        <li class="nav-item bg-secondary" >
+          <a href="#" class="nav-link text-light"><h4>Categories</h4></a>
+        </li>
+        <?php 
+        getcategory();
+        ?>    
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="bg-secondary p-3 text-center navbar-light text-light footer">
+    <p>All rights reserved & Designed by <b>MAYMUNA MARJAN</b></p>
+  </div>
 </div>
 
 

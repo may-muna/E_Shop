@@ -104,7 +104,7 @@ if(isset($_POST['Register'])){
     }
     else{
         move_uploaded_file($image_tmp,"./user_img/$image");
-        $insert_query="insert into user (name,email,password,address,ip,image,phone) values('$user','$email','$password','$ip','$address','$image','$phone')";
+        $insert_query="insert into user (name,email,password,address,ip,image,phone) values('$user','$email','$password','$address','$ip','$image','$phone')";
         $sql_execute=mysqli_query($con,$insert_query);
     }
 
@@ -113,8 +113,15 @@ if(isset($_POST['Register'])){
    $rows_count=mysqli_num_rows($r_cart);
    if($rows_count>0){
     $_SESSION['name']=$user;
-    echo "<script>alert('You have items in your cart')</script>";
-    echo "<script>window.open('../checkout.php','_self')</script>";
+    echo "<script>
+    swal({
+        title: 'Succsess',
+        text: 'You have items in cart',
+        icon: 'succsess',
+        button: 'OK',
+    });
+</script>";
+    echo "<script>window.open('checkout.php','_self')</script>";
    }else{
     echo "<script>window.open('../index.php','_self')</script>";
    }
