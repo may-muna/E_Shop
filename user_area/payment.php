@@ -17,8 +17,9 @@ include('../functions/common_function.php');
 </head>
 
 <style>
-    img{
-        width:100%;
+    .pay{
+        width:60%;
+        height: 50%;
         margin:auto;
         display: block;
 
@@ -36,12 +37,12 @@ include('../functions/common_function.php');
 
     ?>
 <div class="container">
-    <div class="bg-secondary py-3 m-5">
-        <h3 class="text-center text-light">Payment Options </h3>
+    <div class=" py-3 m-2">
+        <h1 class="text-center text-black">Payment Options </h1>
     </div>
     <div class="row py-4 d-flex justify-content-center align-items-center my-5">
-        <div class="col-md-6">
-        <a href="https://www.bkash.com" target="_blank"><img src="../admin_area/bk.png" alt=""></a>
+        <div class="col-md-6 ">
+        <a href="https://www.bkash.com" target="_blank"><img src="../admin_area/b.png" alt="" class="pay"></a>
         </div>
         <div class="col-md-6">
         <a href="order.php?id=<?php echo $id ?>"><h2 class="text-center">Pay Offline</h2></a>

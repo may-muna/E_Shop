@@ -17,13 +17,20 @@ session_start();
     <link rel="stylesheet" href="style.css">
 
   </head>
+  <style>
+    .logo{
+      width: 7%;
+      height: 7%;
+}
+  </style>
+  
 <body>
 <!--navbar-->
 <div class="container-fluid p=0">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
 
 <div class="container-fluid">
-  <img src="./images/logo.jpeg" alt="" class="logo">
+  <img src="../images/logo.jpeg" alt="" class="logo">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -79,7 +86,7 @@ if (isset($_SESSION['username'])) {
   <div class="col-md-12">
       <div class="row">
         <?php
-        if(!isset($_SESSION['name'])){
+        if(!isset($_SESSION['username'])){
             include('login.php');
         }else{
             include('payment.php');

@@ -266,4 +266,31 @@ function get_unique(){
         echo $total;
       }
     
+
+   //get user details
+    function get_user_order(){
+      global $con; 
+      $username=$_SESSION['username'];
+      $get_details="select * from user where name='$username'";
+      $r=mysqli_query($con,$get_details);
+      while($row=mysqli_fetch_array($r)){
+        $id=$row['id'];
+        if(!isset($_GET['edit_account'])){
+          if(!isset($_GET['my_orders'])){
+            if(!isset($_GET['delete_account'])){
+                $get_order="select * from orders where u_id=$id and status='pending'";
+                $res=mysqli_query($con,$get_order);
+                $row_c=mysqli_num_rows($res);
+                if($row_c>0){
+                  echo "<h3 class='text-center my-5'>You have <span class='text-danger'>$row_c</span> Pending Orders</h3>
+                  <h3 class='text-center'><a href='profile.php?my_orders' class='text-dark'>Order Details</a></h3>";
+                }else{
+                  echo "<h3 class='text-center my-5'>You have zero Pending Orders</h3>
+                  <h3 class='text-center'><a href='../index.php' class='text-dark'>Explore Products</a></a></h3>";
+                }
+              }
+          }
+        }
+      }
+    } 
 ?>
