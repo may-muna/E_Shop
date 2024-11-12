@@ -148,6 +148,9 @@ if (isset($_SESSION['username'])) {
         <div class="col-md-9">
         <?php 
         get_user_order();
+        if(isset($_GET['edit_account'])){
+            include('edit_account.php');
+        }
         ?>
         </div>
     </div>
