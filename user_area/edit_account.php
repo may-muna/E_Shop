@@ -2,7 +2,7 @@
 
 if(isset($_GET['edit_account'])){
     $user_session_name=$_SESSION['username'];
-    $select_query="select * from user where name=' $user_session_name'";
+    $select_query="select * from user where name='$user_session_name'";
     $r=mysqli_query($con,$select_query);
     $row=mysqli_fetch_assoc($r);
     $id=$row['id'];
@@ -10,22 +10,26 @@ if(isset($_GET['edit_account'])){
     $address=$row['address'];
     $phone=$row['phone'];
     $username=$row['name'];
-
-    if(isset($_GET['update'])){
+}
+    if(isset($_POST['update'])){
         $update_id=$id;
         $username=$_POST['name'];
         $email=$_POST['email'];
         $address=$_POST['address'];
         $phone=$_POST['phone'];
         $user_image=$_FILES['image']['name'];
-        $user_tmp=$_FILES['image']['tmp'];
+        $user_tmp=$_FILES['image']['tmp_name'];
         move_uploaded_file($user_tmp,"./user_img/$user_image");
     
-        $update_query="update user set ";
-    
+        $update_query="update user set name='$username',email='$email',address='$address',image='$user_image',phone='$phone' where id=$update_id";
+        $rs=mysqli_query($con,$update_query);
+        if($rs){
+            echo "<script>alert('Data updated successfully')</script>";
+            echo "<script>window.open('logout.php','_self')</script>";
+        }
     }
 
-}
+
 
 ?>
 
@@ -48,7 +52,7 @@ if(isset($_GET['edit_account'])){
     <h2 class="text-center my-5">Edit Account</h2>
     <form action="" method="post" enctype="multipart/form-data"class="text-center">
         <div class="form-outline mb-4">
-            <input type="text" class="form-control w-50 m-auto" value="<?php echo $username?>" name="username">
+            <input type="text" class="form-control w-50 m-auto" value="<?php echo $username?>" name="name">
         </div>
         <div class="form-outline mb-4">
             <input type="email" class="form-control w-50 m-auto " value="<?php echo $email?>"name="email">

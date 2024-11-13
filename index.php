@@ -44,9 +44,19 @@ session_start();
       <li class="nav-item mx-3">
         <a class="nav-link fs-4" href="display_all_pro.php">Products</a> 
       </li>
-      <li class="nav-item mx-3">
-        <a class="nav-link fs-4" href="user_area/reg.php">Register</a> 
-      </li>
+      <?php 
+      if (isset($_SESSION['username'])){
+        echo "<li class='nav-item mx-3'>
+        <a class='nav-link fs-4' href='user_area/profile.php'>My Account</a> 
+      </li>";
+    }else{
+      echo " <li class='nav-item mx-3'>
+        <a class='nav-link fs-4' href='user_area/reg.php'>Register</a> 
+      </li>";
+    }
+      
+?>
+     
       <li class="nav-item mx-3">
         <a class="nav-link fs-4" href="#">Contact</a>
       </li>
