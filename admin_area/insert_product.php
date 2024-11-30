@@ -32,6 +32,7 @@ if (isset($_POST['insert_product'])) {
         echo "<script>alert('Error inserting the product')</script>";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,8 @@ if (isset($_POST['insert_product'])) {
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
-</head>
+</head> 
+
 <body class="bg-light">
     <div class="container mt-4 w-50 m-auto">
         <h1 class="text-center">Insert Products</h1>
@@ -100,5 +102,5 @@ if (isset($_POST['insert_product'])) {
 </html>
 
 <?php 
-    include('../admin_area/footer.php');
+    include('footer.php');
 ?>

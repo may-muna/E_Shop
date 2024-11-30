@@ -16,7 +16,7 @@
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
         <div class="container-fluid">
-            <img src="../images/logo.jpeg" alt="">
+            <img src="../images/logo.jpeg" alt="" class="width: 50px; ">
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav">
                     <li class="nav-item">

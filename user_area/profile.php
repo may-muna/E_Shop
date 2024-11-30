@@ -91,7 +91,7 @@ if (isset($_SESSION['username'])) {
     $username=$_SESSION['username'];
     echo "<li class='nav-item ms-3'><a class='nav-link text-light fs-4' href='#'>Welcome " . $_SESSION['username'] . "</a>
           </li>";
-    echo " <li class='nav-item ms-3'><a class='nav-link text-light fs-4' href='./user_area/logout.php'>Logout</a>
+    echo " <li class='nav-item ms-3'><a class='nav-link text-light fs-4' href='logout.php'>Logout</a>
           </li>";
     } else {
     echo "<li class='nav-item ms-3'><a class='nav-link text-light fs-4' href='#'>Welcome Guest</a>

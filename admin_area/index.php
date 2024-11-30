@@ -1,3 +1,10 @@
+<?php 
+include('../include/db.php');
+include('../functions/common_function.php');
+include('../admin_area/header.php');
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,27 +35,14 @@
             bottom: 0;
 
         }
+        
     </style>
 
 </head>
 <body>
     <!--navbar-->
 <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
-        <div class="container-fluid">
-            <img src="../images/logo.jpeg" alt="">
-            <nav class="navbar navbar-expand-lg">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" class="nav-link mb-2 "><h2>Welcome Admin</h2></a>
-                    </li>
-                    <li class="nav-item">
-                        <button><a href="#" class="nav-link bg-secondary 1 my-1 text-light">Log Out</a></button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </nav>
+   
 
     <div class="bg-light">
         <h3 class="text-center p-2">Manage Details</h3>
@@ -63,7 +57,7 @@
 
             <div class="button text-center w-100 ">
                 <button class="my-3 bt"><a href="insert_product.php" class="nav-link   my-1">Insert Products</a></button>
-                <button class="bt"><a href="#" class="nav-link  my-1">View Products</a></button>
+                <button class="bt"><a href="view_products.php" class="nav-link  my-1">View Products</a></button>
                 <button class="bt"><a href="insert_cat.php" class="nav-link  my-1">Insert Categories</a></button>
                 <button class="bt" ><a href="#" class="nav-link  my-1">View Categories</a></button>
                 <button class="bt"><a href="#" class="nav-link  my-1">All Orders</a></button>
@@ -74,25 +68,28 @@
         </div>
     </div>
     <div class="container my-5">
-        <?php
+       
+    </div>  
+</div>
+<?php 
+    include('footer.php');
+?>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
+<?php
         if(isset($_GET['insert_cat'])){
             include('insert_cat.php');
         }
+        if(isset($_GET['view_Products'])){
+            include('view_products.php');
+        }
+        if(isset($_GET['edit_pro'])){
+            include('edit_pro.php');
+        }
+        if(isset($_GET['delete_pro'])){
+            include('delete_pro.php');
+        }
         ?>
-    </div>
 
-
-
-
-    <div class="bg-secondary p-3 text-center navbar-light text-light footer">
-        <p>All rights reserved & Designed by <b>MAYMUNA MARJAN</b></p>
-    </div>
-</div>
-
-
-
-
-<!----javasript--->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
