@@ -34,7 +34,7 @@ session_start();
         <a class="nav-link active fs-4" aria-current="page" href="index.php">Home</a> 
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link fs-4" href="display.php">Products</a> 
+        <a class="nav-link fs-4" href="display_all_pro.php">Products</a> 
       </li>
       <li class="nav-item mx-3">
         <a class="nav-link fs-4" href="user_area/reg.php">Register</a> 
