@@ -10,8 +10,8 @@ include('../include/db.php');
     }
     .custom-table {
         border-collapse: collapse;
-        width: 50% !important; /* Force the width to 50% */
-        margin: 0 auto; /* Center the table horizontally */
+        width: 50% !important; 
+        margin: 0 auto; 
     }
     
     .custom-table th, .custom-table td {
@@ -59,8 +59,8 @@ include('../include/db.php');
             echo $row_count;
             ?></td>
             <td><?php echo $pro_status;?></td>
-            <td><a href='edit_pro.php'><i class='fa-solid fa-pen-to-square'></i></a></td>
-            <td><a href='delete_pro.php'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='edit_pro.php?edit_pro=<?php echo $pro_id?>'><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='delete_pro.php?delete_pro=<?php echo $pro_id?>'><i class='fa-solid fa-trash'></i></a></td>
         </tr><?php
         }
         ?>
