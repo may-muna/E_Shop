@@ -59,7 +59,7 @@ session_start();
                 <button class="my-3 bt"><a href="insert_product.php" class="nav-link   my-1">Insert Products</a></button>
                 <button class="bt"><a href="view_products.php" class="nav-link  my-1">View Products</a></button>
                 <button class="bt"><a href="insert_cat.php" class="nav-link  my-1">Insert Categories</a></button>
-                <button class="bt" ><a href="#" class="nav-link  my-1">View Categories</a></button>
+                <button class="bt" ><a href="view_cat.php" class="nav-link  my-1">View Categories</a></button>
                 <button class="bt"><a href="#" class="nav-link  my-1">All Orders</a></button>
                 <button class="bt"><a href="#" class="nav-link  my-1">Payments</a></button>
                 <button class="bt"><a href="#" class="nav-link  my-1">List Users</a></button>
@@ -91,5 +91,14 @@ session_start();
         if(isset($_GET['delete_pro'])){
             include('delete_pro.php');
         }
+        if(isset($_GET['view_cat'])){
+            include('view_cat.php');
+        }
+        if(isset($_GET['edit_cat'])){
+            include('edit_cat.php');
+        }
+
+
+        
         ?>
 
