@@ -20,6 +20,9 @@
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a href="index.php" class="nav-link"><h3>Home page</h3></a>
+                    </li>
+                    <li class="nav-item">
                         <a href="" class="nav-link"><h3>Welcome Admin</h3></a>
                     </li>
                     <li class="nav-item">

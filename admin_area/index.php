@@ -1,7 +1,7 @@
 <?php 
 include('../include/db.php');
 include('../functions/common_function.php');
-include('../admin_area/header.php');
+//include('../admin_area/header.php');
 session_start();
 
 ?>
@@ -41,6 +41,23 @@ session_start();
 </head>
 <body>
     <!--navbar-->
+    <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
+        <div class="container-fluid">
+            <img src="../images/logo.jpeg" alt="" class="width: 50px; ">
+            <nav class="navbar navbar-expand-lg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="" class="nav-link"><h3>Welcome Admin</h3></a>
+                    </li>
+                    <li class="nav-item">
+                        <button><a href="#" class="nav-link bg-secondary my-1 text-light">Log Out</a></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>
 <div class="container-fluid p-0">
    
 
@@ -96,6 +113,9 @@ session_start();
         }
         if(isset($_GET['edit_cat'])){
             include('edit_cat.php');
+        }
+        if(isset($_GET['delete_cat'])){
+            include('delete_cat.php');
         }
 
 

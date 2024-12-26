@@ -28,7 +28,7 @@ include('../include/db.php');
                 <td><?php echo $Cat_title;?> </td>
                 
                 <td><a href= 'edit_cat.php?edit_cat=<?php echo  $Cat_id?> '><i class='fa-solid fa-pen-to-square'></i></a></td>
-            <td><a href='delete_cay.php'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='delete_cat.php?delete_cat=<?php echo  $Cat_id?>'><i class='fa-solid fa-trash'></i></a></td>
             </tr>
         <?php 
             } ?>
