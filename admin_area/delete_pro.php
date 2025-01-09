@@ -9,7 +9,7 @@ if(isset($_GET['delete_pro'])){
     $result=mysqli_query($con,$delete_product);
     if($result){
         echo "<script>alert('Product deleted successfully')</script>";
-        echo "<script>window.open('./index.php','_self')</script>";
+        echo "<script>window.open('./view_products.php','_self')</script>";
 
     }
     
