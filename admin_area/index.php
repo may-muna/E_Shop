@@ -77,9 +77,9 @@ session_start();
                 <button class="bt"><a href="view_products.php" class="nav-link  my-1">View Products</a></button>
                 <button class="bt"><a href="insert_cat.php" class="nav-link  my-1">Insert Categories</a></button>
                 <button class="bt" ><a href="view_cat.php" class="nav-link  my-1">View Categories</a></button>
-                <button class="bt"><a href="#" class="nav-link  my-1">All Orders</a></button>
-                <button class="bt"><a href="#" class="nav-link  my-1">Payments</a></button>
-                <button class="bt"><a href="#" class="nav-link  my-1">List Users</a></button>
+                <button class="bt"><a href="lists_order.php" class="nav-link  my-1">All Orders</a></button>
+                <button class="bt"><a href="list_payment.php" class="nav-link  my-1">Payments</a></button>
+                <button class="bt"><a href="list_users.php" class="nav-link  my-1">List Users</a></button>
                 
             </div>
         </div>
@@ -117,8 +117,24 @@ session_start();
         if(isset($_GET['delete_cat'])){
             include('delete_cat.php');
         }
-
-
         
+        if(isset($_GET['lists_order'])){
+            include('lists_order.php');
+        }
+        if(isset($_GET['delete_order'])){
+            include('delete_order.php');
+        }
+        if(isset($_GET['list_payment'])){
+            include('list_payment.php');
+        }
+        if(isset($_GET['delete_payment'])){
+            include('delete_payment.php');
+        }
+        if(isset($_GET['list_users'])){
+            include('list_users.php');
+        }
+        if(isset($_GET['delete_user'])){
+            include('delete_user.php');
+        }
         ?>
 
