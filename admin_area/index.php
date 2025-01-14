@@ -2,6 +2,7 @@
 include('../include/db.php');
 include('../functions/common_function.php');
 //include('../admin_area/header.php');
+
 session_start();
 
 ?>
@@ -20,8 +21,10 @@ session_start();
 
     <style>
         .admin_image{
-            width: 100px;
-            object-fit: contain;          
+            width: 50%;
+            height: 40%;
+            object-fit: contain; 
+                    
         }
         .bt{
             width: 220px;
@@ -47,12 +50,15 @@ session_start();
             <img src="../images/logo.jpeg" alt="" class="width: 50px; ">
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" class="nav-link"><h3>Welcome Admin</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <button><a href="#" class="nav-link bg-secondary my-1 text-light">Log Out</a></button>
-                    </li>
+                <?php 
+                if (isset($_SESSION['username'])) {
+                    echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome " . $_SESSION['username'] . "</h2></a> </li>";
+                    echo " <li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_logout.php'><h2>Logout</h2></a></li>";
+                } else {
+                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome Admin</h2></a></li>";
+                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_login.php'><h2>Login</h2></a></li>";
+                }
+                ?>
                 </ul>
             </nav>
         </div>
@@ -68,8 +74,18 @@ session_start();
     <div class="row">
         <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
             <div class="p-5">
-                <a href="#"><img src="../images/a.jpg" alt="" class="admin_image" ></a>
-                <p class="text-light text-center">Admin Name</p>
+            <?php 
+                if (isset($_SESSION['username'])) {
+                $username=$_SESSION['username'];
+                $select="select * from admin where name='$username'";
+                $r=mysqli_query($con,$select);
+                $row=mysqli_fetch_array($r);                
+                $img=$row['image'];
+                //echo $img;
+                echo"<a href='#'><img src='./admin_img/$img' alt='' class='admin_image ms-4' ></a>
+                <h3 class='text-light my-4 ms-5'>$username </h3>";
+                }
+            ?>
             </div>
 
             <div class="button text-center w-100 ">
@@ -136,5 +152,7 @@ session_start();
         if(isset($_GET['delete_user'])){
             include('delete_user.php');
         }
+
+        
         ?>
 
