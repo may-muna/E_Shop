@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id'])) {
+    // Use the session id to fetch the admin details
+    $id = $_SESSION['id'];
+    include('db.php');
+    $sql = "SELECT * FROM admin WHERE id = $id";
+    $exe = mysqli_query($con, $sql);
+    $data = mysqli_fetch_assoc($exe);
+} else {
+    // If no session exists, redirect to login page
+    header('Location: admin_login.php');
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,21 +34,19 @@
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
         <div class="container-fluid">
-            <img src="../images/logo.jpeg" alt="" class="width: 50px; ">
             <nav class="navbar navbar-expand-lg">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link"><h3>Home page</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link"><h3>Welcome Admin</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <button><a href="#" class="nav-link bg-secondary my-1 text-light">Log Out</a></button>
-                    </li>
+                <?php 
+                if (isset($_SESSION['email'])) {
+                    echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome " . $data['name'] . "</h2></a> </li>";
+                    echo " <li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_logout.php'><h2>Logout</h2></a></li>";
+                } else {
+                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome Admin</h2></a></li>";
+                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_login.php'><h2>Login</h2></a></li>";
+                }
+                ?>
                 </ul>
             </nav>
         </div>
     </nav>
 </div>
-</body>

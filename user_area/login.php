@@ -1,7 +1,7 @@
 <?php
 include('../include/db.php');
 include('../functions/common_function.php');
-@session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +66,7 @@ if(isset($_POST['login'])){
     $select_cart=mysqli_query($con,$select_que);
     $c=mysqli_num_rows($select_cart);
     if($rows_count>0){
+        session_start();
         $_SESSION['username']=$username;
         if($rows_count==1 and $c==0){
             echo "<script>window.open('profile.php','_self')</script>";

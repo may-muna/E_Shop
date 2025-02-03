@@ -1,9 +1,7 @@
 <?php 
 include('../include/db.php');
 include('../functions/common_function.php');
-//include('../admin_area/header.php');
-
-session_start();
+include('header.php');
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +20,7 @@ session_start();
     <style>
         .admin_image{
             width: 50%;
-            height: 40%;
+            height: 50%;
             object-fit: contain; 
                     
         }
@@ -47,20 +45,7 @@ session_start();
     <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(250, 236, 239);">
         <div class="container-fluid">
-            <img src="../images/logo.jpeg" alt="" class="width: 50px; ">
-            <nav class="navbar navbar-expand-lg">
-                <ul class="navbar-nav">
-                <?php 
-                if (isset($_SESSION['username'])) {
-                    echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome " . $_SESSION['username'] . "</h2></a> </li>";
-                    echo " <li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_logout.php'><h2>Logout</h2></a></li>";
-                } else {
-                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='#'><h2>Welcome Admin</h2></a></li>";
-                        echo "<li class='nav-item ms-3'><a class='nav-link text-dark fs-4' href='./admin_login.php'><h2>Login</h2></a></li>";
-                }
-                ?>
-                </ul>
-            </nav>
+           <img src="../img/logo.jpg" height="80" width="100" alt="">
         </div>
     </nav>
 </div>
@@ -75,16 +60,18 @@ session_start();
         <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
             <div class="p-5">
             <?php 
-                if (isset($_SESSION['username'])) {
-                $username=$_SESSION['username'];
-                $select="select * from admin where name='$username'";
-                $r=mysqli_query($con,$select);
-                $row=mysqli_fetch_array($r);                
-                $img=$row['image'];
-                //echo $img;
+                $id = $_SESSION['id'];
+                include('db.php');
+                $sql = "SELECT * FROM admin WHERE id = $id";
+                $exe = mysqli_query($con, $sql);
+                $data = mysqli_fetch_assoc($exe);              
+                $img=$data['image'];
+                $pass=$data['password'];
+                $name = $data['name'];
+                
                 echo"<a href='#'><img src='./admin_img/$img' alt='' class='admin_image ms-4' ></a>
-                <h3 class='text-light my-4 ms-5'>$username </h3>";
-                }
+                <h3 class='text-light my-4 ms-5'>$name </h3>";
+                
             ?>
             </div>
 
